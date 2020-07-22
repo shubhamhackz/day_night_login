@@ -1,3 +1,4 @@
+import 'package:day_night_login/utils/viewport_size.dart';
 import 'package:flutter/material.dart';
 
 class ToggleButton extends StatefulWidget {
@@ -38,8 +39,21 @@ class _ToggleButtonState extends State<ToggleButton> {
             decoration: ShapeDecoration(
               color: const Color(0x33FFFFFF),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(width * 0.05),
+                borderRadius: BorderRadius.circular(width * 0.036),
               ),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                buildText(
+                  text: widget.startText,
+                  color: const Color(0xFFFFFFFF),
+                ),
+                buildText(
+                  text: widget.endText,
+                  color: const Color(0xFFFFFFFF),
+                ),
+              ],
             ),
           ),
         ),
@@ -55,18 +69,28 @@ class _ToggleButtonState extends State<ToggleButton> {
             height: height * 0.06,
             decoration: ShapeDecoration(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(width * 0.05),
+                borderRadius: BorderRadius.circular(width * 0.036),
               ),
               color: const Color(0xFFFFFFFF),
             ),
-            child: Text(
-              _activeIndex == 0 ? widget.startText : widget.endText,
-              style: TextStyle(
-                  fontSize: width * 0.036, fontWeight: FontWeight.bold),
+            child: buildText(
+              text: _activeIndex == 0 ? widget.startText : widget.endText,
             ),
           ),
         ),
       ],
+    );
+  }
+
+  Text buildText({String text, Color color = const Color(0xFF000000)}) {
+    return Text(
+      text,
+      style: TextStyle(
+        fontSize: ViewportSize.width * 0.04,
+        color: color,
+        fontWeight: FontWeight.bold,
+        fontFamily: 'Varela',
+      ),
     );
   }
 }

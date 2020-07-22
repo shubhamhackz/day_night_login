@@ -1,4 +1,3 @@
-import 'package:day_night_login/utils/viewport_size.dart';
 import 'package:flutter/widgets.dart';
 
 class SunRays extends AnimatedWidget {
@@ -13,22 +12,23 @@ class SunRays extends AnimatedWidget {
           .drive(
             Tween<Offset>(
               begin: Offset(0, 0),
-              end: Offset(0, -160),
+              end: Offset(0, -150),
             ),
           )
           .value,
-      child: Container(
-        width: ViewportSize.width * 1.4,
-        height: ViewportSize.width * 1.4,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          gradient: RadialGradient(
-            colors: [
-              const Color(0xFFf9c87e),
-              const Color(0xFFf4aa85),
-              const Color(0x00f4aa85),
-            ],
-            stops: [0.4, 0.7, 1],
+      child: FadeTransition(
+        opacity: controller,
+        child: Container(
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: RadialGradient(
+              colors: [
+                const Color(0xFFf9c87e),
+                const Color(0xFFf4aa85),
+                const Color(0x00f4aa85),
+              ],
+              stops: [0.3, 0.55, 1],
+            ),
           ),
         ),
       ),
