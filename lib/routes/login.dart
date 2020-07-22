@@ -1,6 +1,10 @@
-import 'package:day_night_login/components/day/sun_circle.dart';
+import 'package:day_night_login/components/day/sun.dart';
+import 'package:day_night_login/components/day/sun_rays.dart';
+import 'package:day_night_login/components/night/moon.dart';
+import 'package:day_night_login/components/night/moon_rays.dart';
 import 'package:day_night_login/components/toggle_button.dart';
 import 'package:day_night_login/models/login_theme.dart';
+import 'package:day_night_login/utils/viewport_size.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -10,6 +14,8 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
   AnimationController _animationController;
+  LoginTheme day;
+  LoginTheme night;
 
   @override
   void initState() {
@@ -20,10 +26,13 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
     _animationController.addListener(() {
       setState(() {});
     });
+    initializeTheme(); //initializing theme for day and night
+
     super.initState();
   }
 
-  LoginTheme day = LoginTheme(
+  initializeTheme() {
+    day = LoginTheme(
       title: 'Good Morning,',
       backgroundGradient: [
         const Color(0xFF8C2480),
@@ -32,23 +41,37 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
         const Color(0xFFFF9D80),
         // const Color(0xFFFFBD73),
       ],
-      landscape: 'assets/images/day.png');
+      landscape: 'assets/images/day.png',
+      circle: Sun(
+        controller: _animationController,
+      ),
+      rays: SunRays(
+        controller: _animationController,
+      ),
+    );
+
+    night = LoginTheme(
+      title: 'Good Night,',
+      backgroundGradient: [
+        const Color(0xFF0D1441),
+        const Color(0xFF283584),
+        const Color(0xFF6384B2),
+        const Color(0xFF6486B7),
+      ],
+      landscape: 'assets/images/night.png',
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    ViewportSize.getSize(context);
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              const Color(0xFF8C2480),
-              const Color(0xFFCE587D),
-              const Color(0xFFFF9485),
-              const Color(0xFFFF9D80),
-              // const Color(0xFFFFBD73),
-            ],
+            colors: night.backgroundGradient,
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -56,75 +79,23 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            // Positioned(
-            //   bottom: _animationController
-            //       .drive(Tween<double>(begin: -300, end: -120))
-            //       .value,
-            //   child: Container(
-            //     width: width * 1.4,
-            //     height: width * 1.4,
-            //     decoration: BoxDecoration(
-            //       shape: BoxShape.circle,
-            //       gradient: RadialGradient(
-            //         colors: [
-            //           const Color(0xFFf9c87e),
-            //           const Color(0xFFf4aa85),
-            //           const Color(0x00f4aa85),
-            //         ],
-            //         stops: [0.4, 0.7, 1],
-            //       ),
-            //     ),
-            //   ),
-            // ),
             Positioned(
-              bottom: _animationController
-                  .drive(Tween<double>(begin: -160, end: -80))
-                  .value,
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  SunCircle(
-                    width: width * 0.9,
-                    stops: [
-                      0.88,
-                      1,
-                    ],
-                    child: SunCircle(
-                      width: width * 0.7,
-                      stops: [0.8, 1],
-                      child: SunCircle(
-                        width: width * 0.5,
-                        stops: [0.6, 1],
-                        child: Container(
-                          width: width * 0.3,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: const Color(0xFFFFFFFF),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    width: width * 0.5,
-                    height: height * 0.5,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      gradient: RadialGradient(
-                        colors: [
-                          const Color(0xFFfad9a5),
-                          const Color(0x00fad9a5),
-                        ],
-                        stops: [0.3, 1],
-                      ),
-                    ),
-                  ),
-                ],
+              width: height * 0.8,
+              height: height * 0.8,
+              bottom: -50,
+              child: MoonRays(
+                controller: _animationController,
+              ),
+            ),
+            Positioned(
+              bottom: -160,
+              child: Moon(
+                controller: _animationController,
               ),
             ),
             Positioned.fill(
               child: Image.asset(
-                'assets/images/day.png',
+                'assets/images/night.png',
                 fit: BoxFit.fill,
               ),
             ),
@@ -140,16 +111,18 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                     tapCallback: (index) {},
                   ),
                   buildText(
-                      text: 'Good Morning,',
-                      padding: EdgeInsets.only(top: height * 0.04),
-                      fontSize: width * 0.09,
-                      fontFamily: 'YesevaOne'),
+                    text: night.title,
+                    padding: EdgeInsets.only(top: height * 0.04),
+                    fontSize: width * 0.09,
+                    fontFamily: 'YesevaOne',
+                  ),
                   buildText(
-                      fontSize: width * 0.04,
-                      padding: EdgeInsets.only(
-                        top: height * 0.02,
-                      ),
-                      text: 'Enter your informations below'),
+                    fontSize: width * 0.04,
+                    padding: EdgeInsets.only(
+                      top: height * 0.02,
+                    ),
+                    text: 'Enter your informations below',
+                  ),
                   buildText(
                     text: 'Email Address',
                     padding: EdgeInsets.only(

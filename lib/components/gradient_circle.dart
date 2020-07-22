@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SunCircle extends StatelessWidget {
-  const SunCircle({Key key, @required this.width, this.child, this.stops})
+class GradientCircle extends StatelessWidget {
+  const GradientCircle({Key key, @required this.width, this.child, this.stops})
       : super(key: key);
 
   final double width;
