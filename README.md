@@ -23,7 +23,11 @@ This app is an implementation of the concept animated login design made by [Aksh
 ![Night Image](https://github.com/shubhamhackz/day_night_login/blob/master/files/night.png)
 ![Night Image](https://github.com/shubhamhackz/day_night_login/blob/master/files/night_2.png)
 
+## Flutter
+The app is developed using the awesome ❤️ Flutter framework developed by Google. Please check [flutter.dev](htpps://flutter.dev) for a comprehensive guide to get started. Docs are 🤩 and you'll be up running in no time. Even after this if you face. any issue please connect with flutter community or ping me 🙏🏻. 
+
 ## Author 
+![Shubham Soni](https://en.gravatar.com/userimage/106354969/f80091f2f51c0ec3be8b80b4c01f4717.jpg)
 - [Facebook](https://www.facebook.com/shubhamhackz)
 - [Twitter](https://www.twitter.com/shubhamhackz)
 - [Stackoverflow](https://stackoverflow.com/users/6915572/shubhamhackz?tab=profile)
