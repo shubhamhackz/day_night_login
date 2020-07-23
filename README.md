@@ -24,7 +24,7 @@ This app is an implementation of the concept animated login design made by [Aksh
 ![Night Image](https://github.com/shubhamhackz/day_night_login/blob/master/files/night_2.png)
 
 ## Flutter
-The app is developed using the awesome ❤️ Flutter framework developed by Google. Please check [flutter.dev](htpps://flutter.dev) for a comprehensive guide to get started. Docs are 🤩 and you'll be up running in no time. Even after this if you face. any issue please connect with flutter community or ping me 🙏🏻. 
+The app is developed using the awesome ❤️ Flutter framework developed by Google. Please check [flutter.dev](https://flutter.dev) for a comprehensive guide to get started. Docs are 🤩 and you'll be up running in no time. Even after this if you face. any issue please connect with flutter community or ping me 🙏🏻. 
 
 ## Author 
 ![Shubham Soni](https://en.gravatar.com/userimage/106354969/f80091f2f51c0ec3be8b80b4c01f4717.jpg)
@@ -44,7 +44,7 @@ The app is developed using the awesome ❤️ Flutter framework developed by Goo
     - 🍴 Fork this repo!
 
 - **Option 2**
-    - 👯 Clone this repo to your local machine using `https://github.com/joanaz/HireDot2.git`
+    - 👯 Clone this repo to your local machine using `https://github.com/shubhamhackz/day_night_login.git`
 
 ### Step 2
 
@@ -52,7 +52,7 @@ The app is developed using the awesome ❤️ Flutter framework developed by Goo
 
 ### Step 3
 
-- 🔃 Create a new pull request using <a href="https://github.com/joanaz/HireDot2/compare/" target="_blank">`https://github.com/joanaz/HireDot2/compare/`</a>.
+- 🔃 Create a new pull request using <a href="https://github.com/shubhamhackz/day_night_login/compare/" target="_blank">`https://github.com/shubhamhackz/day_night_login/compare/`</a>.
 
 ---
 
