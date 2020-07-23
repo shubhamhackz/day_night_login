@@ -1,5 +1,4 @@
 import 'package:day_night_login/routes/login.dart';
-import 'package:day_night_login/utils/cached_images.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,11 +11,5 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Login(),
     );
-  }
-
-  cacheImages(context) {
-    CachedImages.imageAssets.forEach((asset) {
-      precacheImage(asset, context);
-    });
   }
 }

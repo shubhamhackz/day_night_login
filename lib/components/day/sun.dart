@@ -15,6 +15,8 @@ class Sun extends AnimatedWidget {
             Tween<Offset>(
               begin: Offset(0, 0),
               end: Offset(0, -80),
+            ).chain(
+              CurveTween(curve: Curves.easeInOut),
             ),
           )
           .value,

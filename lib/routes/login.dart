@@ -7,7 +7,6 @@ import 'package:day_night_login/models/login_theme.dart';
 import 'package:day_night_login/utils/cached_images.dart';
 import 'package:day_night_login/utils/custom_icons_icons.dart';
 import 'package:day_night_login/utils/viewport_size.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatefulWidget {
@@ -17,6 +16,7 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
   AnimationController _animationController;
+  Animation _animation;
   LoginTheme day;
   LoginTheme night;
   Mode _activeMode = Mode.day;
@@ -35,8 +35,14 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
 
   @override
   void didChangeDependencies() {
+    cacheImages();
     super.didChangeDependencies();
-    compute(cacheImages, context);
+  }
+
+  cacheImages() {
+    CachedImages.imageAssets.forEach((asset) {
+      precacheImage(asset, context);
+    });
   }
 
   initializeTheme() {
@@ -49,7 +55,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
         const Color(0xFFFF9D80),
         // const Color(0xFFFFBD73),
       ],
-      landscape: 'assets/images/day.png',
+      landscape: CachedImages.imageAssets[0],
       circle: Sun(
         controller: _animationController,
       ),
@@ -64,9 +70,9 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
         const Color(0xFF0D1441),
         const Color(0xFF283584),
         const Color(0xFF6384B2),
-        //const Color(0xFF6486B7),
+        const Color(0xFF6486B7),
       ],
-      landscape: 'assets/images/night.png',
+      landscape: CachedImages.imageAssets[1],
       circle: Moon(
         controller: _animationController,
       ),
@@ -102,12 +108,13 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
               child: _activeMode == Mode.day ? day.rays : night.rays,
             ),
             Positioned(
-              bottom: -160,
+              bottom: _activeMode == Mode.day ? -160 : -80,
               child: _activeMode == Mode.day ? day.circle : night.circle,
             ),
             Positioned.fill(
-              child: Image.asset(
-                _activeMode == Mode.day ? day.landscape : night.landscape,
+              child: Image(
+                image:
+                    _activeMode == Mode.day ? day.landscape : night.landscape,
                 fit: BoxFit.fill,
               ),
             ),
@@ -238,10 +245,4 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
 enum Mode {
   day,
   night,
-}
-
-cacheImages(context) {
-  CachedImages.imageAssets.forEach((asset) {
-    precacheImage(asset, context);
-  });
 }

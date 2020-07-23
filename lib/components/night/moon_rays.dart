@@ -8,7 +8,7 @@ class MoonRays extends AnimatedWidget {
   @override
   Widget build(BuildContext context) {
     return FadeTransition(
-      opacity: controller,
+      opacity: controller.drive(Tween<double>(begin: 0.00, end: 1.0)),
       child: Transform.translate(
         offset: controller
             .drive(
@@ -23,7 +23,7 @@ class MoonRays extends AnimatedWidget {
             shape: BoxShape.circle,
             gradient: RadialGradient(
               colors: [
-                const Color(0x556384B2),
+                const Color(0x666384B2),
                 const Color(0x006486B7),
               ],
               stops: [

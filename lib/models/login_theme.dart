@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 
 class LoginTheme {
   final String title;
-  final String landscape;
+  final AssetImage landscape;
   final List<Color> backgroundGradient;
   final Widget circle;
   final Widget rays;

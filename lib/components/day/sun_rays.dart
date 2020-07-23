@@ -24,7 +24,7 @@ class SunRays extends AnimatedWidget {
             gradient: RadialGradient(
               colors: [
                 const Color(0xFFf9c87e),
-                const Color(0xFFf4aa85),
+                const Color(0xEEf4aa85),
                 const Color(0x00f4aa85),
               ],
               stops: [0.3, 0.55, 1],

@@ -58,8 +58,8 @@ class _ToggleButtonState extends State<ToggleButton> {
           ),
         ),
         AnimatedContainer(
-          duration: const Duration(milliseconds: 250),
-          curve: Curves.decelerate,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOutCirc,
           width: width * 0.7,
           alignment:
               _activeIndex == 0 ? Alignment.centerLeft : Alignment.centerRight,

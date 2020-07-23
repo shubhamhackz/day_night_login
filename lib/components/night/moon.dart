@@ -14,7 +14,9 @@ class Moon extends AnimatedWidget {
           .drive(
             Tween<Offset>(
               begin: Offset(0, 0),
-              end: Offset(0, -200),
+              end: Offset(0, -110),
+            ).chain(
+              CurveTween(curve: Curves.easeInOut),
             ),
           )
           .value,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CachedImages {
-  static List<AssetImage> imageAssets = [
-    AssetImage('assets/images/day.png'),
-    AssetImage('assets/images/night.png'),
+  static const List<AssetImage> imageAssets = [
+    const AssetImage('assets/images/day.png'),
+    const AssetImage('assets/images/night.png'),
   ];
 }
