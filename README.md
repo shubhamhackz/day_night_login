@@ -11,6 +11,9 @@ This app is an implementation of the concept animated login design made by [Aksh
 ![App Design](https://github.com/shubhamhackz/day_night_login/blob/master/files/preview.gif)
 
 ## Download App
+
+ Note : Uploaded apk is a fat apk which works on armeabi-v7a (ARM 32-bit), arm64-v8a (ARM 64-bit), and x86-64 (x86 64-bit). If you want small size apk then please clone this reposittory and generate one using Android Studio or Visual Studio Code.
+
 [![Download App](https://github.com/shubhamhackz/day_night_login/blob/master/files/download.png)](https://github.com/shubhamhackz/day_night_login/blob/master/files/app-release.apk)
 
 ## Author 
