@@ -1,6 +1,6 @@
-# day_night_login
+# Day Night Login
 
-A new Flutter project.
+Made with 🔥 in India.
 
 ## Getting Started
 
