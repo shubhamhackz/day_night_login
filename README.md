@@ -16,6 +16,10 @@ This app is an implementation of the concept animated login design made by [Aksh
 
 [![Download App](https://github.com/shubhamhackz/day_night_login/blob/master/files/download.png)](https://github.com/shubhamhackz/day_night_login/blob/master/files/app-release.apk)
 
+## Screenshots
+
+![Day Image](https://github.com/shubhamhackz/day_night_login/blob/master/files/day_1.png)
+
 ## Author 
 - [Facebook](https://www.facebook.com/shubhamhackz)
 - [Twitter](https://www.twitter.com/shubhamhackz)
