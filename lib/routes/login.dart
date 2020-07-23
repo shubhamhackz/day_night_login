@@ -1,3 +1,4 @@
+import 'package:day_night_login/components/arrow_button.dart';
 import 'package:day_night_login/components/day/sun.dart';
 import 'package:day_night_login/components/day/sun_rays.dart';
 import 'package:day_night_login/components/input_field.dart';
@@ -7,7 +8,6 @@ import 'package:day_night_login/components/toggle_button.dart';
 import 'package:day_night_login/enums/mode.dart';
 import 'package:day_night_login/models/login_theme.dart';
 import 'package:day_night_login/utils/cached_images.dart';
-import 'package:day_night_login/utils/custom_icons_icons.dart';
 import 'package:day_night_login/utils/viewport_size.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +18,6 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
   AnimationController _animationController;
-  Animation _animation;
   LoginTheme day;
   LoginTheme night;
   Mode _activeMode = Mode.day;
@@ -169,29 +168,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                   InputField(
                     hintText: 'Your password',
                   ),
-                  Container(
-                    width: width - width * 0.15,
-                    margin: EdgeInsets.only(top: height * 0.02),
-                    alignment: Alignment.centerRight,
-                    child: Container(
-                      width: width * 0.155,
-                      height: width * 0.155,
-                      decoration: ShapeDecoration(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        color: const Color(0xFFFFFFFF),
-                        shadows: [
-                          BoxShadow(
-                            color: const Color(0x55000000),
-                            blurRadius: width * 0.02,
-                            offset: Offset(3, 3),
-                          ),
-                        ],
-                      ),
-                      child: Icon(CustomIcons.right_arrow),
-                    ),
-                  ),
+                  const ArrowButton(),
                 ],
               ),
             ),
