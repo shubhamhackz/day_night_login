@@ -1,5 +1,6 @@
 import 'package:day_night_login/components/day/sun.dart';
 import 'package:day_night_login/components/day/sun_rays.dart';
+import 'package:day_night_login/components/input_field.dart';
 import 'package:day_night_login/components/night/moon.dart';
 import 'package:day_night_login/components/night/moon_rays.dart';
 import 'package:day_night_login/components/toggle_button.dart';
@@ -154,9 +155,8 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                         top: height * 0.04, bottom: height * 0.015),
                     fontSize: width * 0.04,
                   ),
-                  buildInputFiled(
+                  InputField(
                     hintText: 'Enter your email',
-                    width: width,
                   ),
                   buildText(
                     text: 'Password',
@@ -166,9 +166,8 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                     ),
                     fontSize: width * 0.04,
                   ),
-                  buildInputFiled(
+                  InputField(
                     hintText: 'Your password',
-                    width: width,
                   ),
                   Container(
                     width: width - width * 0.15,
@@ -197,31 +196,6 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-
-  Container buildInputFiled({double width, String hintText}) {
-    return Container(
-      width: width * 0.85,
-      alignment: Alignment.center,
-      child: Theme(
-        data: ThemeData(
-          primaryColor: const Color(0x55000000),
-        ),
-        child: TextField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(width * 0.025),
-            ),
-            hintText: hintText,
-            hintStyle: TextStyle(
-              color: const Color(0xFFFFFFFF),
-            ),
-            fillColor: const Color(0x33000000),
-            filled: true,
-          ),
         ),
       ),
     );
