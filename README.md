@@ -1,3 +1,4 @@
+ ![GitHub stars](https://img.shields.io/github/stars/shubhamhackz/day_night_login?style=social) ![GitHub forks](https://img.shields.io/github/forks/shubhamhackz/day_night_login?style=social) ![License](https://img.shields.io/github/license/shubhamhackz/day_night_login) ![GitHub issues](https://img.shields.io/github/issues/shubhamhackz/day_night_login)
 # Day Night Login
 
 Made with 🔥 in India.
