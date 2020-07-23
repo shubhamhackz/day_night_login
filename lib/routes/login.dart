@@ -3,6 +3,7 @@ import 'package:day_night_login/components/day/sun_rays.dart';
 import 'package:day_night_login/components/night/moon.dart';
 import 'package:day_night_login/components/night/moon_rays.dart';
 import 'package:day_night_login/components/toggle_button.dart';
+import 'package:day_night_login/enums/mode.dart';
 import 'package:day_night_login/models/login_theme.dart';
 import 'package:day_night_login/utils/cached_images.dart';
 import 'package:day_night_login/utils/custom_icons_icons.dart';
@@ -240,9 +241,4 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
       ),
     );
   }
-}
-
-enum Mode {
-  day,
-  night,
 }
