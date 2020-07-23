@@ -20,7 +20,7 @@ This app is an implementation of the concept animated login design made by [Aksh
 
 ![Day Image](https://github.com/shubhamhackz/day_night_login/blob/master/files/day_1.png)
 ![Day Image](https://github.com/shubhamhackz/day_night_login/blob/master/files/day_2.png)
-![Night Image](https://github.com/shubhamhackz/day_night_login/blob/master/files/night_1.png)
+![Night Image](https://github.com/shubhamhackz/day_night_login/blob/master/files/night.png)
 ![Night Image](https://github.com/shubhamhackz/day_night_login/blob/master/files/night_2.png)
 
 ## Author 
