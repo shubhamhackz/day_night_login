@@ -29,7 +29,10 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
       duration: const Duration(
         milliseconds: 1000,
       ),
-    )..forward();
+    );
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      _animationController.forward(from: 0.0);
+    }); // wait for all the widget to render
     initializeTheme(); //initializing theme for day and night
     super.initState();
   }
