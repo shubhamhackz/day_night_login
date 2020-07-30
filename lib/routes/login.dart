@@ -16,25 +16,51 @@ class Login extends StatefulWidget {
   _LoginState createState() => _LoginState();
 }
 
-class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
+class _LoginState extends State<Login> with TickerProviderStateMixin {
   AnimationController _animationController;
+  AnimationController _birdAnimationController;
   LoginTheme day;
   LoginTheme night;
   Mode _activeMode = Mode.day;
 
   @override
   void initState() {
+
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(
         milliseconds: 1000,
       ),
     );
+
+    //Second Animation
+    _birdAnimationController = AnimationController(
+        vsync: this,
+        duration: Duration(seconds: 2),
+        lowerBound: -0.5,
+        upperBound: 1);
+
+    _birdAnimationController.value = -1;
+    _birdAnimationController.addListener(() {
+      setState(() {});
+    });
+    _birdAnimationController.addStatusListener((status) {});
+
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _animationController.forward(from: 0.0);
+      _birdAnimationController.forward(from: -0.5);
+
     }); // wait for all the widget to render
+
     initializeTheme(); //initializing theme for day and night
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    _birdAnimationController.dispose();
+    super.dispose();
   }
 
   @override
@@ -118,8 +144,16 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
             Positioned.fill(
               child: Image(
                 image:
-                    _activeMode == Mode.day ? day.landscape : night.landscape,
+                _activeMode == Mode.day ? day.landscape : night.landscape,
                 fit: BoxFit.fill,
+              ),
+            ),
+            Positioned(
+              left: _birdAnimationController.value * width,
+              child: Image(
+                width: width * 0.5,
+                height: width * 0.5,
+                image: AssetImage("assets/images/birds.gif"),
               ),
             ),
             Positioned(
@@ -135,6 +169,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                       setState(() {
                         _activeMode = index == 0 ? Mode.day : Mode.night;
                         _animationController.forward(from: 0.0);
+                        _birdAnimationController.forward(from: -0.5);
                       });
                     },
                   ),
